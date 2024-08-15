@@ -10,5 +10,5 @@ Route::post('/verify-code', [SMSController::class, 'verifyCode']);
 
 Route::post('/request-preview', [PreviewController::class, 'requestPreview']);
 Route::post('/confirm-details', [ConfirmController::class, 'confirmDetails']);
-Route::get('/generate-pdf/{order_id}', [PdfController::class, 'generatePdf']);
+
 

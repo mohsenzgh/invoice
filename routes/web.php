@@ -36,7 +36,7 @@ Route::post('/logout', function () {
     return redirect('/login/'); 
 })->name('logout');
 
- Route::get('/form' , [HomeController::class  , 'form']);
+//  Route::get('/form' , [HomeController::class  , 'form']);
  Route::post('/request-preview', [PreviewController::class, 'requestPreview']);
 
- Route::post('/export', [ConfirmController::class, 'confirmDetails']);
+//  Route::post('/export', [ConfirmController::class, 'confirmDetails']);

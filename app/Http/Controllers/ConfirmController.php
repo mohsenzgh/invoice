@@ -17,28 +17,24 @@ class ConfirmController extends Controller
     
     public function confirmDetails(Request $request)
     { 
-        // $data = $request->validate([
-        //     'products' => 'required|array',
-        //     'products.*.product_id' => 'required|numeric',
-        //     'products.*.dimensions.*.length' => 'required|numeric',
-        //     'products.*.dimensions.*.width' => 'required|numeric',
-        //     'products.*.dimensions.*.count' => 'required|numeric',
-        //     'products.*.dimensions.*.system' => 'required|array',
-        //     'products.*.area' => 'required|numeric',
-        //     'products.*.color' => 'required|numeric',
-        //     'products.*.light' => 'numeric',
-        //     'products.*.dimensions.*.customs' => 'required|array',
-        //     'name' => 'required|string',
-        //     'phone' => 'required|string',
-        //     'company' => 'string',
-        // ]);
+        $data = $request->validate([
+            'products' => 'required|array',
+            'products.*.product_id' => 'required|numeric',
+            'products.*.dimensions.*.length' => 'required|numeric',
+            'products.*.dimensions.*.width' => 'required|numeric',
+            'products.*.dimensions.*.count' => 'required|numeric',
+            'products.*.dimensions.*.system' => 'required|array',
+            'products.*.area' => 'required|numeric',
+            'products.*.color' => 'required|numeric',
+            'products.*.light' => 'numeric',
+            'products.*.dimensions.*.customs' => 'required|array',
+            'name' => 'required|string',
+            'phone' => 'required|string',
+            'company' => 'string',
+        ]);
 
-        // $order = Order::create([
-        //     'customer_name' => $data['name'],
-        //     'customer_phone' => $data['phone'],
-        //     'customer_company' => $data['company'],
-        // ]);
-         // foreach ($data['products'] as $product) {
+        
+        //  foreach ($data['products'] as $product) {
         //     // $productOrder = ProductOrder::create([
         //     //     'order_id' => $order->id,
         //     //     'product_id' => $product['product_id'],
@@ -47,56 +43,56 @@ class ConfirmController extends Controller
         //     //     'area' => $product['area'],
         //     //     'total_cost' => $product['total_cost'],
         //     // ]);
-        $data = [
-            "name"=>"mohsen",
-            "phone"=>"09035900509",
-            "company"=>"sayeroshan",
-            "products" => [
-                [
-                    "product_id" => 1,
-                    "dimensions" => [
-                        [
-                            "length" => 8000,
-                            "width" => 1500,
-                            "light"=>"اکریلیک نقطه‌ای",
-                            "count" => 4,
-                            "systems" => [
-                                [
-                                    "length" => 2000,
-                                    "width" => 1500
-                                ]
-                            ],
-                            "customs" => [
-                                [
-                                    "engine" => "becker",
-                                    "type" => "Roof Level"
-                                ]
-                            ]
+        // $data = [
+        //     "name"=>"mohsen",
+        //     "phone"=>"09035900509",
+        //     "company"=>"sayeroshan",
+        //     "products" => [
+        //         [
+        //             "product_id" => 1,
+        //             "dimensions" => [
+        //                 [
+        //                     "length" => 8000,
+        //                     "width" => 1500,
+        //                     "light"=>"اکریلیک نقطه‌ای",
+        //                     "count" => 4,
+        //                     "systems" => [
+        //                         [
+        //                             "length" => 2000,
+        //                             "width" => 1500
+        //                         ]
+        //                     ],
+        //                     "customs" => [
+        //                         [
+        //                             "engine" => "becker",
+        //                             "type" => "Roof Level"
+        //                         ]
+        //                     ]
                         
-                        ],
-                        [
-                            "length" => 8000,
-                            "width" => 1500,
-                            "light"=>"اکریلیک نقطه‌ای",
-                            "count" => 4,
-                            "systems" => [
-                                [
-                                    "length" => 1500,
-                                    "width" => 2000
-                                ]
-                            ],
-                            "customs" => [
-                                [
-                                    "engine" => "becker",
-                                    "type" => "Roof Level"
-                                ]
-                            ]
+        //                 ],
+        //                 [
+        //                     "length" => 8000,
+        //                     "width" => 1500,
+        //                     "light"=>"اکریلیک نقطه‌ای",
+        //                     "count" => 4,
+        //                     "systems" => [
+        //                         [
+        //                             "length" => 1500,
+        //                             "width" => 2000
+        //                         ]
+        //                     ],
+        //                     "customs" => [
+        //                         [
+        //                             "engine" => "becker",
+        //                             "type" => "Roof Level"
+        //                         ]
+        //                     ]
                         
-                        ]                           
-                    ]
-                ]
-            ]
-        ];
+        //                 ]                           
+        //             ]
+        //         ]
+        //     ]
+        // ];
 
         foreach ($data['products'] as $product) {
             
@@ -602,6 +598,8 @@ class ConfirmController extends Controller
         $pdf = $this->generatePDF($allSystems ,$order_id);
         // dd($pdf);
         $url=$pdf['url'];
+       
+
 
     
         return response()->json([
